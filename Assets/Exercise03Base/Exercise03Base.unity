@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1014178567}
-  - component: {fileID: 1014178566}
+  - component: {fileID: 1014178568}
   m_Layer: 0
   m_Name: MyTerrain
   m_TagString: Untagged
@@ -129,7 +129,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1014178566
+--- !u!4 &1014178567
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1014178565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1014178568
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -137,14 +150,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1014178565}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7103fc91fc321104080b26a0aa9733b9, type: 3}
+  m_Script: {fileID: 11500000, guid: d9d5f13ccab5e78449556638d58b9298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   size: 20
   featureScaling: 5.44
   featureMagnitude: 1.29
-  fineFeatureScaling: 29.89
-  fineFeatureMagnitude: 0.36
   subdivisions: 100
   heightModifier: 3
   heightToColor:
@@ -177,21 +188,7 @@ MonoBehaviour:
     m_NumColorKeys: 6
     m_NumAlphaKeys: 2
   textureSize: 512
-  speed: 0.03
   mat: {fileID: 2100000, guid: b2eb4aae04494074dacbaa9223185d92, type: 2}
---- !u!4 &1014178567
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1014178565}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1216709289
 Prefab:
   m_ObjectHideFlags: 0

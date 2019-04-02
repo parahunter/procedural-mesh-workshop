@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Exercise03Final : MonoBehaviour
+public class Exercise03Base : MonoBehaviour
 {
 	[Header("Global")]
 	public float size = 20;
 	public float featureScaling = 0.1f;
 	public float featureMagnitude = 1f;
-	public float fineFeatureScaling = 0.1f;
-	public float fineFeatureMagnitude = 0.1f;
 	
 	[Header("Mesh specific")]
 	public int subdivisions = 10;
@@ -38,7 +36,6 @@ public class Exercise03Final : MonoBehaviour
 		mat.mainTexture = tex;	
 	}
 
-	// Use this for initialization
 	void Update ()
 	{
 		UpdateTexture();
@@ -49,7 +46,7 @@ public class Exercise03Final : MonoBehaviour
 
 		float quadSize = size / subdivisions;
 		float reciprocalSubdivisions = 1.0f / subdivisions;
-		
+
 		for (int y = 0; y < subdivisions; y++)
 		{
 			for (int x = 0; x < subdivisions; x++)
@@ -62,7 +59,6 @@ public class Exercise03Final : MonoBehaviour
 				Vector3 vertex = new Vector3(x * quadSize, height, y * quadSize);
 								
 				vertices.Add(vertex);
-				uvs.Add(new Vector2(normalizedX, normalizedY));
 			}
 		}
 
@@ -101,8 +97,8 @@ public class Exercise03Final : MonoBehaviour
 				float normalizedX = x * texSize;
 				float normalizedY = y * texSize;
 				
-				float height = GetNormalizedHeight(normalizedX, normalizedY);
-
+				float height = GetNormalizedHeight(normalizedX, normalizedY);// Mathf.PerlinNoise(normalizedX * featureScaling, normalizedY * featureScaling);
+				
 				pixels[x + y * textureSize] = heightToColor.Evaluate(height);
 			}
 		}
@@ -116,10 +112,7 @@ public class Exercise03Final : MonoBehaviour
 	float GetNormalizedHeight(float nx, float ny)
 	{
 		float featureHeight = Mathf.PerlinNoise(nx * featureScaling, ny * featureScaling);
-
 		float height = featureHeight * featureMagnitude;
-
-		height += featureHeight * featureHeight * Mathf.Lerp(-fineFeatureMagnitude, fineFeatureMagnitude, Mathf.PerlinNoise(nx * fineFeatureScaling, ny * fineFeatureScaling));
 
 		return height;
 	}
